@@ -11,7 +11,7 @@ $blade = new Blade($views, $cache);
 
 // pass data
 $vars = [
-	'name' => 'Samantha', 
+	'name' => 'Samantha2', 
 	'address' => 'Mijn nieuwe adres',
 	'products' => [ 'pname' => 'Fatboy Lamzac', 'pname' => 'BigBag' ]
 ];

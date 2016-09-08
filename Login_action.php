@@ -2,7 +2,7 @@
 session_start();
 require 'inc/functions.php';
 
-$dbc = mysqli_connect('mysql.hostinger.nl', 'u619986482_user', 'Waterman1', 'u619986482_db');
+$dbc = mysqli_connect('localhost', 'root', '', 'inschrijfsysteem');
 
 $error = ""; //Variable for storing our errors.
 if(isset($_POST["Login"]))
@@ -24,7 +24,7 @@ if(isset($_POST["Login"]))
 		
 
 		//Check username and password from database
-		$sql = "SELECT * from Accounts WHERE Email='$email' AND Password='$password'";
+		$sql = "SELECT * from accounts WHERE Email='$email' AND Password='$password'";
 		$result = mysqli_query($dbc,$sql);
 		$row = mysqli_fetch_array($result,MYSQLI_ASSOC);
 

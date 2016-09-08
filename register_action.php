@@ -23,10 +23,10 @@
 	else
 	{
 		$errmsg = '';
-		$dbc = mysqli_connect('mysql.hostinger.nl', 'u619986482_user', 'Waterman1', 'u619986482_db');
+		$dbc = mysqli_connect('localhost', 'root', '', 'inschrijfsysteem');
 		if ( $dbc )
 		{
-			$sql = "SELECT * FROM Accounts WHERE Email = '$Email'";
+			$sql = "SELECT * FROM accounts WHERE Email = '$Email'";
 			$result = $dbc->query($sql);
 			if($result->num_rows > 0) {
 				$errmsg = 'Deze email is al in gebruik!'; 
@@ -47,10 +47,10 @@
 	}
 
 	// 3: store the values in the database
-	$dbc = mysqli_connect('mysql.hostinger.nl', 'u619986482_user', 'Waterman1', 'u619986482_db');
+	$dbc = mysqli_connect('localhost', 'root', '', 'inschrijfsysteem');
 	if ( $dbc )
 	{
-		$query = "INSERT INTO Accounts (Email, Password )  VALUES ('$Email', '$Password')";
+		$query = "INSERT INTO accounts (Email, Password )  VALUES ('$Email', '$Password')";
 		$result = $dbc->query($query);
 		if(!$result) {
 			$errmsg = 'Het is niet gelukt om de ingevulde gegevens op te slaan in de database.' . mysqli_error($dbc); 

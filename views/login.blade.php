@@ -11,6 +11,18 @@
   </head>
 <body>
 
+@if(isset($errors))				{{-- does $errors exist? --}}
+	@if($errors->any())			{{-- does $errors have any errors? --}}
+	<div class="errors" >
+	<ul>
+		@foreach ($errors->all() as $error)		
+			<li>{{ $error }}</li>
+		@endforeach
+	</ul>
+	</div>
+	@endif
+@endif
+
 <form class="form-horizontal" role="form" method="post" action="Login_action.php">
 		<div class="form-group">
           <label class="control-label col-sm-2" for="InputEmail">Email</label>

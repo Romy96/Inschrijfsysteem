@@ -1,16 +1,19 @@
-<?php 
 
-// load neccesary files
+<?php 
+require_once 'inc/session.php';
+// configure blade engine
 require 'vendor/autoload.php';
 use Philo\Blade\Blade;
 
-// configure blade engine
 $views = __DIR__ . '/views';
 $cache = __DIR__ . '/cache';
 $blade = new Blade($views, $cache);
 
-// pass data
+// if session contains errors, copy them to $errors variable
+if ( isset ($_SESSION['errors'])) {
+	$errors = $_SESSION['errors'];
+	$_SESSION['errors'] = array();	// remove all errors
+}
 
-
-// output everything
-echo $blade->view()->make('login')->render();
+// tell blade to create HTML from the template "login.blade.php"
+echo $blade->view()->make('login')->withErrors($errors)->render();

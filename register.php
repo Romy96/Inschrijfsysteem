@@ -11,6 +11,5 @@ $blade = new Blade($views, $cache);
 
 // pass data
 
-
 // output everything
 echo $blade->view()->make('register')->render();

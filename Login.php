@@ -10,11 +10,7 @@ $cache = __DIR__ . '/cache';
 $blade = new Blade($views, $cache);
 
 // pass data
-$vars = [
-	'name' => 'Samantha2', 
-	'address' => 'Mijn nieuwe adres',
-	'products' => [ 'pname' => 'Fatboy Lamzac', 'pname' => 'BigBag' ]
-];
+
 
 // output everything
-echo $blade->view()->make('Login')->render();
+echo $blade->view()->make('login')->render();

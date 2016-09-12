@@ -16,7 +16,7 @@ if ( empty($_POST['pwd']) ) {
 // check if user can be found
 if (empty($_SESSION['errors'])) $result = CheckUserIsValid($db, $_POST['InputEmail'], $_POST['pwd']);
 if ( $result == 1 ) {
-	LoginSession($userId, $_POST['email']);
+	LoginSession($userId, $_POST['InputEmail']);
 	echo 'User logged in.';
 }
 else

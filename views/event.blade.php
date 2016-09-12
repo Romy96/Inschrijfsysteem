@@ -1,11 +1,14 @@
-<!doctype html>
+<!DOCTYPE html>
 <html>
-<head>
-	<link href="css/style.css" rel="stylesheet">
-	<title>Login</title>
-	
-	
-</head>
+  <head>
+      <title>Events</title>
+      <meta charset="utf-8">
+      <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <link rel="stylesheet" href="css/bootstrap.min.css">
+      <link rel="stylesheet" href="css/bootstrap-theme.min.css">
+      <link rel="stylesheet" href="css/style.css">
+  </head>
 <body>
 
 <!-- show the topmenu bar -->
@@ -32,9 +35,9 @@
 	@endif
 @endif
 
-<!-- content goes here -->
-@yield('content')
+	<div class="events">
 
+	</div>
 
-</body>
+  </body>
 </html>

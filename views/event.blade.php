@@ -35,9 +35,35 @@
 	@endif
 @endif
 
-	<div class="events">
+	<?php
+	$connection = mysqli_connect('localhost', 'root', '', 'inschrijfsysteem');
 
-	</div>
+	if (mysqli_connect_errno())
+  	{
+  		echo "Failed to connect to MySQL: " . mysqli_connect_error();
+  	}
+
+      $output = "";
+      $sql = mysqli_query($connection, "SELECT * FROM events");
+
+      if (!mysqli_query($connection, "SELECT * FROM events")
+  		{
+  			echo("Error description: " . mysqli_error($connection));
+  		}
+
+      elseif (mysqli_query($connection, "SELECT * FROM events")
+      {
+      $result = mysqli_query($connection,$sql);
+      $row = mysqli_fetch_array($result,MYSQLI_ASSOC);
+      $output .= '
+      <div class="events">
+  		printf ("%s (%s)\n",$row['name'],$row['background_img'], $row['banner'],$row['start_date'],$row['location']);
+      </div>';
+      }
+
+
+	mysqli_close($connection);
+	?>
 
   </body>
 </html>

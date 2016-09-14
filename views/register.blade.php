@@ -15,10 +15,10 @@
 <!-- show the topmenu bar -->
 <div class="topbar">
 @if(isset($_SESSION['userEmail']))
-  <span>{{ $_SESSION['userEmail'] }}</span>
-  <span style="float:right;"><a href="logout_action.php">Logout</a></span>
+  <span class="fa fa-user">{{ $_SESSION['userEmail'] }}</span>
+  <span class="fa fa-user" style="float:right;"><a href="logout_action.php">Logout</a></span>
 @else
-  <span>No user logged in</span>  
+  <span class="fa fa-user"/><span>No user logged in</span>  
 @endif
 <span style="float:left;"></span>
 </div>
@@ -63,7 +63,23 @@
             </div>
         </form>
 
-    </div>
+      </div>
+
+      <div class="debugbar">
+        <div class="debugbar-inner">
+          <div class="col">
+            <h3>Cookie contents: </h3>
+            <p><?php print_r($_COOKIE); ?></p>
+          </div>
+
+          <div class="col">
+            <h3>Session contents: </h3>
+            <p><?php print_r($_SESSION); ?></p>
+          </div>
+
+        </div>
+      </div>
+
     </div>
     </body>
     </html>

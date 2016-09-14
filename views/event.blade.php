@@ -14,10 +14,10 @@
 <!-- show the topmenu bar -->
 <div class="topbar">
 @if(isset($_SESSION['userEmail']))
-	<span>{{ $_SESSION['userEmail'] }}</span>
-	<span style="float:right;"><a href="logout_action.php">Logout</a></span>
+	<span class="fa fa-user">{{ $_SESSION['userEmail'] }}</span>
+	<span class="fa fa-user" style="float:right;"><a href="logout_action.php">Logout</a></span>
 @else
-	<span>No user logged in</span>	
+	<span class="fa fa-user"/><span>No user logged in</span>	
 @endif
 <span style="float:left;"></span>
 </div>
@@ -35,35 +35,43 @@
 	@endif
 @endif
 
-	<?php
-	$connection = mysqli_connect('localhost', 'root', '', 'inschrijfsysteem');
+	<h1>Events</h1>
 
-	if (mysqli_connect_errno())
-  	{
-  		echo "Failed to connect to MySQL: " . mysqli_connect_error();
-  	}
+	<div>
 
-      $output = "";
-      $sql = mysqli_query($connection, "SELECT * FROM events");
+		<div style="float:left; margin-right: 16px; width: 300px; height: 160px; border: 1px solid silver; background-image:url('img/sportdag.jpg');">
+			<div style="width: 276px; height: 136px; margin: 12px;">
+				<span style="font-family: roboto; color: white; font-size: 28pt;   text-shadow: 2px 0 0 black, -2px 0 0 black, 0 2px 0 black, 0 -2px 0 black, 1px 1px silver, -1px -1px 0 silver, 1px -1px 0 silver, -1px 1px 0 silver; ">LIFESTYLEDAG</span>
+			</div>
 
-      if (!mysqli_query($connection, "SELECT * FROM events")
-  		{
-  			echo("Error description: " . mysqli_error($connection));
-  		}
+			<div style="width: 276px; height: 136px; margin: 12px;">
+				<span style="font-family: roboto; color: white; font-size: 28pt;   text-shadow: 2px 0 0 black, -2px 0 0 black, 0 2px 0 black, 0 -2px 0 black, 1px 1px silver, -1px -1px 0 silver, 1px -1px 0 silver, -1px 1px 0 silver; ">LIFESTYLEDAG</span>
+			</div>
 
-      elseif (mysqli_query($connection, "SELECT * FROM events")
-      {
-      $result = mysqli_query($connection,$sql);
-      $row = mysqli_fetch_array($result,MYSQLI_ASSOC);
-      $output .= '
-      <div class="events">
-  		printf ("%s (%s)\n",$row['name'],$row['background_img'], $row['banner'],$row['start_date'],$row['location']);
-      </div>';
-      }
+		</div>
 
+		<div style="float:left; margin-right: 16px; width: 300px; height: 160px; border: 1px solid silver; background-image:url('img/disney.jpg');">
+			<div style="width: 276px; height: 136px; margin: 12px; ">
+				<span style="font-family: roboto; color: white; font-size: 18pt; text-shadow: 2px 2px black;">SCHOOLREIS</span>
+			</div>
+		</div>
 
-	mysqli_close($connection);
-	?>
+	</div>
 
-  </body>
+	<div class="debugbar">
+		<div class="debugbar-inner">
+			<div class="col">
+				<h3>Cookie contents: </h3>
+				<p><?php print_r($_COOKIE); ?></p>
+			</div>
+
+			<div class="col">
+				<h3>Session contents: </h3>
+				<p><?php print_r($_SESSION); ?></p>
+			</div>
+
+		</div>
+	</div>
+
+</body>
 </html>

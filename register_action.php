@@ -74,7 +74,7 @@
 	// 4 user is saved to database. now go back to frontpage.
 	session_start();
 	$_SESSION['statusmessage'] = 'De ingevoerde gegevens zijn opgeslagen in de database.';
-	header('Location: index.php');
+	header('Location: event.php');
 	exit;
 	
 ?>

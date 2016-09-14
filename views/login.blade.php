@@ -8,17 +8,16 @@
       <link rel="stylesheet" href="css/bootstrap.min.css">
       <link rel="stylesheet" href="css/bootstrap-theme.min.css">
       <link rel="stylesheet" href="css/style.css">
-	<link href="css/style.css" rel="stylesheet">
 </head>
 <body>
 
 <!-- show the topmenu bar -->
 <div class="topbar">
 @if(isset($_SESSION['userEmail']))
-	<span>{{ $_SESSION['userEmail'] }}</span>
-	<span style="float:right;"><a href="logout_action.php">Logout</a></span>
+	<span class="fa fa-user">{{ $_SESSION['userEmail'] }}</span>
+	<span class="fa fa-user" style="float:right;"><a href="logout_action.php">Logout</a></span>
 @else
-	<span>No user logged in</span>	
+	<span class="fa fa-user"/><span>No user logged in</span>	
 @endif
 <span style="float:left;"></span>
 </div>
@@ -52,7 +51,7 @@
 		<div class="form-group">        
 		  <div class="col-sm-offset-2 col-sm-10">
 			<div class="checkbox">
-			  <label><input type="checkbox" name="remember" value="remember me">Remember me</label>
+			  <label><input type="checkbox" name="remember" value="checked">Remember me</label>
 			</div>
 		  </div>
 		</div>
@@ -72,6 +71,21 @@
 		  </div>
 		</div>
 	  </form>
+
+	<div class="debugbar">
+		<div class="debugbar-inner">
+			<div class="col">
+				<h3>Cookie contents: </h3>
+				<p><?php print_r($_COOKIE); ?></p>
+			</div>
+
+			<div class="col">
+				<h3>Session contents: </h3>
+				<p><?php print_r($_SESSION); ?></p>
+			</div>
+
+		</div>
+	</div>
 
 </body>
 </html>

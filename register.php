@@ -1,15 +1,8 @@
 <?php 
 
-// load neccesary files
-require 'vendor/autoload.php';
-use Philo\Blade\Blade;
-
-// configure blade engine
-$views = __DIR__ . '/views';
-$cache = __DIR__ . '/cache';
-$blade = new Blade($views, $cache);
-
-// pass data
+ require_once 'inc/session.php';
+ require_once 'inc/blade.php';
+ require_once 'inc/errors.php';
 
 // output everything
-echo $blade->view()->make('register')->render();
+echo $blade->view()->make('register')->withErrors($errors)->render();

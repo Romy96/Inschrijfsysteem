@@ -12,6 +12,7 @@
 // ]
  
 function CheckUserIsValid ($db, $email, $password) {
+
 	// return 0 if email is empty
 	if (empty($email)) {
 		return ['result' => 0, 'userId' => null, 'userEmail' => null, 'displayname' => null];
@@ -21,11 +22,11 @@ function CheckUserIsValid ($db, $email, $password) {
 		return ['result' => 0, 'userId' => null, 'userEmail' => null, 'displayname' => null];
 	}
 	$enc_password = sha1($password);
+
 	//echo '<p>Password encrypted with SHA: ' . $enc_password . '<br>';
 	$statement = $db->prepare('SELECT account_id, displayname FROM accounts where Email=? AND Password=? AND active=1;');
 	$statement->execute(array($email, $enc_password));
-	$err = $statement->errorInfo();
-	$_SESSION['errors'][] = 'PDO status: ' . $err[2];
+	$err = $statement->errorCode();
 
 	$count = $statement->rowCount();
 	$row = $statement->fetch(PDO::FETCH_ASSOC);

@@ -7,7 +7,7 @@
 	if ( ! isset ($_POST['submit']) )
 	{
 		session_start();
-		$_SESSION['errormessage'] = "U moet wel iets invullen.";
+		$_SESSION['errors'][] = "U moet wel iets invullen.";
 		header('Location: register.php');
 		exit;
 	}
@@ -18,30 +18,30 @@
 	$Password = md5($_POST['pwd']);
 	if ( IsNullOrEmptyString($Email) )
 	{
-		$errmsg = 'Email is leeg.';
+		$_SESSION['errors'][] = 'Email is leeg.';
 	}
 	else
 	{
-		$errmsg = '';
+		$errors = '';
 		$dbc = mysqli_connect('localhost', 'root', '', 'inschrijfsysteem');
 		if ( $dbc )
 		{
 			$sql = "SELECT * FROM accounts WHERE Email = '$Email'";
 			$result = $dbc->query($sql);
 			if($result->num_rows > 0) {
-				$errmsg = 'Deze email is al in gebruik!'; 
+				$_SESSION['errors'][] = 'Deze email is al in gebruik!'; 
 			} 
 			mysqli_close($dbc);
 		}
 		else
 		{
-			$errmsg = 'Error connecting to MySQL server.';
+			$_SESSION['errors'][] = 'Error connecting to MySQL server.';
 		}
 	}
-	if ( $errmsg != '' )
+	if ( $errors != '' )
 	{
 		session_start();
-		$_SESSION['errormessage'] = $errmsg;
+		$_SESSION['errors'][] = $errors;
 		header('Location: register.php');
 		exit;
 	}
@@ -53,19 +53,19 @@
 		$query = "INSERT INTO accounts (Email, Password )  VALUES ('$Email', '$Password')";
 		$result = $dbc->query($query);
 		if(!$result) {
-			$errmsg = 'Het is niet gelukt om de ingevulde gegevens op te slaan in de database.' . mysqli_error($dbc); 
+			$_SESSION['errors'][] = 'Het is niet gelukt om de ingevulde gegevens op te slaan in de database.' . mysqli_error($dbc); 
 		} 
 		$_SESSION['Email'] = $Email;
 		mysqli_close($dbc);
 	}
 	else
 	{
-		$errmsg = 'Error connecting to MySQL server.';
+		$_SESSION['errors'][] = 'Error connecting to MySQL server.';
 	}
-	if ( $errmsg != '' )
+	if ( $errors != '' )
 	{
 		session_start();
-		$_SESSION['errormessage'] = $errmsg;
+		$_SESSION['errors'][] = $errors;
 		header('Location: register.php');
 		exit;
 	}
@@ -73,7 +73,6 @@
 	
 	// 4 user is saved to database. now go back to frontpage.
 	session_start();
-	$_SESSION['statusmessage'] = 'De ingevoerde gegevens zijn opgeslagen in de database.';
 	header('Location: event.php');
 	exit;
 	

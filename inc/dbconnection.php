@@ -8,9 +8,9 @@ $db = new PDO('mysql:host='. $mysql_host.';dbname='.$mysql_dbname.';charset=utf8
 // print MySQL version
 // $statement = $db->query('SELECT version();');
 // foreach($statement as $row) {
-//     print_r($row);
+//      $_SESSION['errors'][] = 'MySQL server version: ' . implode(' ', $row);
 // }
-// $statement = $db->query('SELECT * from users;');
+// $statement = $db->query('SELECT * from accounts;');
 // foreach($statement as $row) {
-//     print_r($row);
-// }
+//      $_SESSION['errors'][] = 'User record: ' . implode(' ', $row);
+//  }

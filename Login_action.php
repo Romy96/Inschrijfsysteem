@@ -15,8 +15,6 @@ if ( empty($_POST['pwd']) ) {
 // check if user can be found
 
 	$resultarray = CheckUserIsValid($db, $_POST['InputEmail'], $_POST['pwd']);
-	$_SESSION['errors'][] = 'Resultaat van CheckUserIsValid(): ' . $resultarray[0] . ' ' . $resultarray[1] . ' ' . $resultarray[2] . ' ' . $resultarray[3] . ' ';
-
 
 if ( $resultarray['result'] == 1 ) {
 	LoginSession($resultarray['userId'], $resultarray['userEmail'], $resultarray['displayname']);

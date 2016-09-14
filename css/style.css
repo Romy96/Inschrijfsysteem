@@ -19,7 +19,7 @@ div.debugbar {
 }
 
 div.debugbar .col {
-	width: 48%;
+	width: 32%;
 	float: left;
 	margin-right: 1%;
 	font-size: 8pt;
@@ -46,6 +46,13 @@ div.debugbar .col p {
 .errors {
 	color: #D8000C;
 	background-color: #FFBABA;
+	margin: 10px 0;
+	padding: 12px;
+}
+
+.messages {
+	color: #003300;
+	background-color: #98e698;
 	margin: 10px 0;
 	padding: 12px;
 }

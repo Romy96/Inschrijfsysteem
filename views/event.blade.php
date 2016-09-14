@@ -2,6 +2,7 @@
 <html>
   <head>
       <title>Events</title>
+      <script src="https://use.fontawesome.com/bf8ab24a40.js"></script>
       <meta charset="utf-8">
       <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
       <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -36,6 +37,21 @@
 @endif
 
 	<h1>Events</h1>
+
+	<?php
+	require 'inc/dbconnection.php';
+
+	$sth = $db->prepare("SELECT * FROM events");
+	$sth->execute();
+
+	/* Fetch all of the remaining rows in the result set */
+	$result = $sth->fetchAll(PDO::FETCH_ASSOC);
+	print_r($result);
+
+	foreach ( $result as $row ) {
+		
+	}
+	?>
 
 	<div>
 

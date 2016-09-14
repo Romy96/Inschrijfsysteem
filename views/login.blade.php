@@ -2,6 +2,7 @@
 <html>
 <head>
 	<title>Login</title>
+	<script src="https://use.fontawesome.com/bf8ab24a40.js"></script>
 	<meta charset="utf-8">
       <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
       <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -35,11 +36,15 @@
 	@endif
 @endif
 
+<div class="container">
+
+<h1>Login</h1>
+
 <form class="form-horizontal" role="form" method="post" action="Login_action.php">
 		<div class="form-group">
           <label class="control-label col-sm-2" for="InputEmail">Email</label>
           <div class="col-sm-10">
-              <input type="text" class="form-control" name="InputEmail" id="InputEmail" placeholder="Enter Email" required>  
+              <input type="text" class="form-control" name="InputEmail" id="InputEmail" placeholder="Enter Email">  
           </div>
 		</div>
 		<div class="form-group">
@@ -85,6 +90,7 @@
 			</div>
 
 		</div>
+	</div>
 	</div>
 
 </body>

@@ -2,6 +2,7 @@
 <html>
   <head>
       <title>Register</title>
+      <script src="https://use.fontawesome.com/bf8ab24a40.js"></script>
       <meta charset="utf-8">
       <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
       <meta name="viewport" content="width=device-width, initial-scale=1.0">

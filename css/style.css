@@ -60,3 +60,30 @@ div.debugbar .col p {
 .topbar span a {
 	color: white;
 }
+
+.img {
+	float: left; 
+	margin-right: 16px; 
+	width: 300px; 
+	height: 160px; 
+	border: 1px solid silver;
+	background-image: url('/img/Walt-Disney.jpg');
+	background-size: cover;
+}
+
+.img2 {
+	width: 276px; 
+	height: 136px; 
+	margin: 12px;
+}
+
+.data_info {
+	font-family: roboto; 
+	color: white; 
+	font-size: 14pt;   
+	text-shadow: 2px 0 0 black, -2px 0 0 black, 0 2px 0 black, 0 -2px 0 black, 1px 1px silver, -1px -1px 0 silver, 1px -1px 0 silver, -1px 1px 0 silver; 
+}
+
+.invisible {
+  visibility: hidden;
+}

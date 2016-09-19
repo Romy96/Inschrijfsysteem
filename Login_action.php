@@ -24,7 +24,7 @@ if ( $resultarray['result'] == 1 ) {
 		RememberCookie($resultarray['userId'], $resultarray['userEmail'], $resultarray['displayname']);
 	}
 
-	header('Location: event.php');
+	header('Location: events.php');
 	exit;	
 }
 else

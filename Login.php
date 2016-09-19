@@ -17,7 +17,7 @@ if ( isset ($_SESSION['errors'])) {
 }
 if ( IsLoggedInSession()==true ) {
 	// stuur direct door naar main pagina
-	header('location: event.php');
+	header('location: events.php');
 	exit;
 }
 else

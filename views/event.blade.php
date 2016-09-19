@@ -15,12 +15,12 @@
 <!-- show the topmenu bar -->
 <div class="topbar">
 @if(isset($_SESSION['userEmail']))
-	<span class="fa fa-user">{{ $_SESSION['userEmail'] }}</span>
-	<span class="fa fa-user" style="float:right;"><a href="logout_action.php">Logout</a></span>
+	<p class="fa fa-user">{{ $_SESSION['userEmail'] }}</p>
+	<p class="fa fa-user" style="float:right;"><a href="logout_action.php">Logout</a></p>
 @else
-	<span class="fa fa-user"/><span>No user logged in</span>	
+	<p class="fa fa-user"/><p>No user logged in</p>	
 @endif
-<span style="float:left;"></span>
+<p style="float:left;"></p>
 </div>
 
 <!-- show errors, if present -->
@@ -38,41 +38,18 @@
 
 	<h1>Events</h1>
 
-	<?php
-	require 'inc/dbconnection.php';
-
-	$sth = $db->prepare("SELECT * FROM events");
-	$sth->execute();
-
-	/* Fetch all of the remaining rows in the result set */
-	$result = $sth->fetchAll(PDO::FETCH_ASSOC);
-	print_r($result);
-
-	foreach ( $result as $row ) {
-		
-	}
-	?>
-
+	@foreach ( $activities as $row ) 
 	<div>
-
-		<div style="float:left; margin-right: 16px; width: 300px; height: 160px; border: 1px solid silver; background-image:url('img/sportdag.jpg');">
-			<div style="width: 276px; height: 136px; margin: 12px;">
-				<span style="font-family: roboto; color: white; font-size: 28pt;   text-shadow: 2px 0 0 black, -2px 0 0 black, 0 2px 0 black, 0 -2px 0 black, 1px 1px silver, -1px -1px 0 silver, 1px -1px 0 silver, -1px 1px 0 silver; ">LIFESTYLEDAG</span>
-			</div>
-
-			<div style="width: 276px; height: 136px; margin: 12px;">
-				<span style="font-family: roboto; color: white; font-size: 28pt;   text-shadow: 2px 0 0 black, -2px 0 0 black, 0 2px 0 black, 0 -2px 0 black, 1px 1px silver, -1px -1px 0 silver, 1px -1px 0 silver, -1px 1px 0 silver; ">LIFESTYLEDAG</span>
-			</div>
-
-		</div>
-
-		<div style="float:left; margin-right: 16px; width: 300px; height: 160px; border: 1px solid silver; background-image:url('img/disney.jpg');">
-			<div style="width: 276px; height: 136px; margin: 12px; ">
-				<span style="font-family: roboto; color: white; font-size: 18pt; text-shadow: 2px 2px black;">SCHOOLREIS</span>
-			</div>
-		</div>
-
-	</div>
+	    <div class='img' style='background-image:url({{$row['image']}})'>
+		    <div class='img2'>
+		    <p class='data_info'>{{$row['name']}}</p> 
+		    <p class='data_info'>{{$row['description']}}</p>
+		    <label class='invisible' for='ID'>{{$row['events_id']}}</label>
+		    </div>
+	    </div>
+    </div>	
+	@endforeach
+	
 
 	<div class="debugbar">
 		<div class="debugbar-inner">

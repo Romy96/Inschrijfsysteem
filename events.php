@@ -15,7 +15,9 @@ else
 {
 	require 'inc/dbconnection.php';
 
-	$sth = $db->prepare("SELECT * FROM events");
+	//$id = mysqli_real_escape_string($db, $_GET['events_id']);
+
+	$sth = $db->prepare("SELECT * FROM events ORDER BY events_id ASC");
 	$sth->execute();
 
 	/* Fetch all of the remaining rows in the result set */

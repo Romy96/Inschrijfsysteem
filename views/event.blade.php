@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-      <title>Events</title>
+      <title>Activities</title>
       <script src="https://use.fontawesome.com/bf8ab24a40.js"></script>
       <meta charset="utf-8">
       <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
@@ -36,7 +36,12 @@
 	@endif
 @endif
 
-	<h1>Events</h1>
+
+	@foreach ( $event as $row )
+		<div class='banner' style='background-image:url({{$row['banner']}})'>	
+			<h1>Activities</h1>
+		</div>
+	@endforeach
 
 	@foreach ( $activities as $row ) 
 	<div>
@@ -44,7 +49,6 @@
 		    <div class='img2'>
 		    <p class='data_info'>{{$row['name']}}</p> 
 		    <p class='data_info'>{{$row['description']}}</p>
-		    <label class='invisible' for='ID'>{{$row['events_id']}}</label>
 		    </div>
 	    </div>
     </div>	

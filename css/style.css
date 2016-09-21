@@ -87,8 +87,7 @@ div.debugbar .col p {
 }
 
 .banner {
-	text-align: center; 
-	margin-right: 16px; 
+	text-align: center;  
 	width: 1000px; 
 	height: 300px; 
 	border: 1px solid black;

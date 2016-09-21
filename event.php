@@ -6,7 +6,13 @@
  require_once 'inc/user_helpers.php';
 
 
-
+ if ( IsLoggedInSession()==false ) {
+	// stuur direct door naar main pagina
+	header('location: Login.php');
+	exit;
+}
+else
+{
 	require 'inc/dbconnection.php';
 
 	$id = $_GET['id'];
@@ -28,3 +34,4 @@
 	->with('event', $event)
 	->with('activities', $activities)->withErrors($errors)->render();
 
+}

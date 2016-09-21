@@ -39,16 +39,16 @@
 
 	@foreach ( $event as $row )
 		<div class='banner' style='background-image:url({{$row['banner']}})'>	
-			<h1>Activities</h1>
+			<h1>{{$row['name']}}</h1>
 		</div>
 	@endforeach
 
-	@foreach ( $activities as $row ) 
+	@foreach ( $activities as $rows ) 
 	<div>
-	    <div class='img' style='background-image:url({{$row['image']}})'>
+	    <div class='img' style='background-image:url({{$rows['image']}})'>
 		    <div class='img2'>
-		    <p class='data_info'>{{$row['name']}}</p> 
-		    <p class='data_info'>{{$row['description']}}</p>
+		    <p class='data_info'>{{$rows['name']}}</p> 
+		    <p class='data_info'>{{$rows['description']}}</p>
 		    </div>
 	    </div>
     </div>	

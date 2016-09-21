@@ -67,7 +67,7 @@
 		</div>
 		<div class="form-group">        
 		  <div class="col-sm-offset-2 col-sm-10">
-			<a href="#">Wachtwoord vergeten?</a>
+			<a href="forgetpass.php">Wachtwoord vergeten?</a>
 		  </div>
 		</div>
 		<div class="form-group">        

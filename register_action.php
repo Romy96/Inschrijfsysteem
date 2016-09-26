@@ -55,6 +55,34 @@
 		if(!$result) {
 			$_SESSION['errors'][] = 'Het is niet gelukt om de ingevulde gegevens op te slaan in de database.' . mysqli_error($dbc); 
 		} 
+		else
+		{
+			// multiple recipients
+			$to .= '$Email';
+
+			// subject
+			$subject = 'Comfirmation registration';
+
+			// message
+			$message = '
+			<html>
+			<head>
+			  <title>Comfirming registration</title>
+			</head>
+			<body>
+			  <p>Thank you for joining our site and making your account!</p>
+			  <p>To activate your account, please click on the link down below.</p>
+			</body>
+			</html>
+			';
+
+			// To send HTML mail, the Content-type header must be set
+			$headers  = 'MIME-Version: 1.0' . "\r\n";
+			$headers .= 'Content-type: text/html; charset=iso-8859-1' . "\r\n";
+
+			// Mail it
+			mail($to, $subject, $message, $headers);
+		}
 		$_SESSION['Email'] = $Email;
 		mysqli_close($dbc);
 	}

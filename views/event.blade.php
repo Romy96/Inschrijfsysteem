@@ -36,10 +36,9 @@
 	@endif
 @endif
 
-
 	@foreach ( $event as $row )
 		<div class='banner' style='background-image:url({{$row['banner']}})'>	
-			<h1>{{$row['name']}}</h1>
+			<h1 class='title'>{{$row['name']}}</h1>
 		</div>
 	@endforeach
 

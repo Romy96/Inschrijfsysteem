@@ -45,7 +45,6 @@
     <div class="row">
         <form role="form" method="get" action="forgetpass_action.php">
             <div class="col-lg-6">
-                <div class="well well-sm"><strong><span class="glyphicon glyphicon-asterisk"></span>Required Field</strong></div>
                 <div class="form-group">
                     <label for="InputEmail">Vul uw email opnieuw in</label>
                     <div class="input-group">

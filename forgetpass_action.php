@@ -4,19 +4,19 @@ require_once 'inc/session.php';
 require 'inc/dbconnection.php';
 require 'inc/user_helpers.php';
 
-$Email = $_POST['InputEmail'];
+$Email = $_GET['InputEmail'];
 
 // redirect back to login with error if user didn't enter email
-if ( empty($_POST['InputEmail']) ) {
+if ( empty($_GET['InputEmail']) ) {
 	$_SESSION['errors'][] = 'Fout: geen e-mail ingevuld.';
 }
 
-$sql = "SELECT Email, Password FROM accounts WHERE Email = '$Email'";
+$sql = $db->prepare("SELECT Email, Password FROM accounts WHERE Email = '$Email'");
 $sql->execute();
 
 if($sql->rowCount() >= 0 ) {
 	// multiple recipients
-	$to .= '$Email';
+	$to = '$Email';
 
 	// subject
 	$subject = 'Comfirmation registration';

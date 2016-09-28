@@ -23,7 +23,7 @@ else
 	{
   		$event = $sth->fetchAll(PDO::FETCH_ASSOC);	
   		if ( $sth->rowCount() == 0 ) $_SESSION['errors'][] = 'Kan event met id '. $id .' niet vinden';
-		if ( $sth->rowCount() >= 1 ) $_SESSION['errors'][] = 'Je haalt teveel rijen op';
+		if ( $sth->rowCount() > 1 ) $_SESSION['errors'][] = 'Je haalt teveel rijen op';
 	}
 	else
 	{

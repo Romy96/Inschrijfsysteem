@@ -6,7 +6,7 @@ function IsNullOrEmptyString($question){
 }
 
 
-      function events() {
+function events() {
 
      $connection = mysqli_connect('localhost', 'root', '', 'inschrijfsysteem');
 
@@ -23,4 +23,4 @@ function IsNullOrEmptyString($question){
 
       return $output;
 
-	}
+}

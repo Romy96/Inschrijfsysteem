@@ -1,7 +1,7 @@
 <?php
 
 $sql = $db->prepare("SELECT Email, account_id FROM accounts WHERE Email = '$Email'");
-$sql->execute();
+$sql->execute(array($Email));
 
 // controleer of er fouten waren, zo ja: bewaar die in de sessie, redirect en stop, zo nee: stuur de mail
 

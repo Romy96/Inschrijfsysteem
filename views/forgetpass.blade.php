@@ -55,7 +55,6 @@
                 <input type="submit" name="submit" id="submit" value="Submit" class="btn btn-info pull-right">
             </div>
         </form>
-
       </div>
 
       <div class="debugbar">

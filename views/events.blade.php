@@ -46,7 +46,6 @@
 			    <p class='data_info'>{{$row['name']}}</p> 
 			    <p class='data_info'>{{$row['start_date']}}</p>
 			    <p class='data_info'>{{$row['location']}}</p> 
-			    <label class='invisible' for='ID'>{{$row['events_id']}}</label>
 		    	</div>
 	    	</div>
 	    </a>

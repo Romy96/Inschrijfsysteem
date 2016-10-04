@@ -43,6 +43,12 @@
 				<div class="row">
 				       <form role="form" method="post" action="forgetpass_action_newpass.php">
 				            <div class="col-lg-6">
+				            	<div class="form-group">
+				                    <label for="pwd">Current password</label>
+				                    <div class="input-group">
+				                        <input type="password" name="pwd" id="pwd" placeholder="New Password" autocomplete="off">
+				                    </div>
+				                </div>
 				                <div class="form-group">
 				                    <label for="new_password">New password</label>
 				                    <div class="input-group">

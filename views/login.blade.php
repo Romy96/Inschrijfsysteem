@@ -1,42 +1,6 @@
-<!doctype html>
-<html>
-<head>
-	<title>Login</title>
-	<script src="https://use.fontawesome.com/bf8ab24a40.js"></script>
-	<meta charset="utf-8">
-      <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
-      <meta name="viewport" content="width=device-width, initial-scale=1.0">
-      <link rel="stylesheet" href="css/bootstrap.min.css">
-      <link rel="stylesheet" href="css/bootstrap-theme.min.css">
-      <link rel="stylesheet" href="css/style.css">
-</head>
-<body>
+@extends('menu')
 
-<!-- show the topmenu bar -->
-<div class="topbar">
-@if(isset($_SESSION['userEmail']))
-	<span class="fa fa-user">{{ $_SESSION['userEmail'] }}</span>
-	<span class="fa fa-user" style="float:right;"><a href="logout_action.php">Logout</a></span>
-@else
-	<span class="fa fa-user"/><span>No user logged in</span>	
-@endif
-<span style="float:left;"></span>
-</div>
-
-<!-- show errors, if present -->
-@if(isset($errors))				{{-- does $errors exist? --}}
-	@if($errors->any())			{{-- does $errors have any errors? --}}
-	<div class="errors" >
-	<ul>
-		@foreach ($errors->all() as $error)		
-			<li>{{ $error }}</li>
-		@endforeach
-	</ul>
-	</div>
-	@endif
-@endif
-
-<div class="container">
+@section('content')
 
 <h1>Login</h1>
 
@@ -77,21 +41,5 @@
 		</div>
 	  </form>
 
-	<div class="debugbar">
-		<div class="debugbar-inner">
-			<div class="col">
-				<h3>Cookie contents: </h3>
-				<p><?php print_r($_COOKIE); ?></p>
-			</div>
+@endsection
 
-			<div class="col">
-				<h3>Session contents: </h3>
-				<p><?php print_r($_SESSION); ?></p>
-			</div>
-
-		</div>
-	</div>
-	</div>
-
-</body>
-</html>

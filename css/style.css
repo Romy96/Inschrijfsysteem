@@ -20,7 +20,7 @@ div.debugbar {
 
 div.debugbar .col {
 	width: 32%;
-	float: left;
+	float: right;
 	margin-right: 1%;
 	font-size: 8pt;
 }

@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <title>Inschrijfsysteem</title>
+  <title>Administratie Inschrijfsysteem</title>
   <!-- Tell the browser to be responsive to screen width -->
   <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
   <!-- Bootstrap 3.3.6 -->
@@ -67,6 +67,8 @@
         <li class="treeview">
         @if(isset($_SESSION['userEmail']))
             <li><a href="logout_action.php"><i class="fa fa-circle-o"></i>Logout</a></li>
+            <li><a href="Events_list.php"><i class="fa fa-circle-o"></i>Evenementen</a></li>
+            <li><a href="users.php"><i class="fa fa-circle-o"></i>Gebruikers</a></li>
         @else
             <li><a href="Login.php"><i class="fa fa-circle-o"></i>Login</a></li>
         @endif
@@ -78,21 +80,21 @@
 
   <!-- Content Wrapper. Contains page content -->
   <div class="content-wrapper">
-  @yield('content')
+  @yield('content_backend')
   </div>
 
   <!-- /.control-sidebar -->
   <!-- Add the sidebar's background. This div must be placed
        immediately after the control sidebar -->
-  @if(isset($errors))       {{-- does $errors exist? --}}
+@if(isset($errors))       {{-- does $errors exist? --}}
   @if($errors->any())     {{-- does $errors have any errors? --}}
-  <div class="control-sidebar-bg"></div>
-  <ul>
-    @foreach ($errors->all() as $error)   
-      <li>{{ $error }}</li>
-    @endforeach
-  </ul>
-  </div>
+    <div class="control-sidebar-bg"></div>
+      <ul>
+        @foreach ($errors->all() as $error)   
+          <li>{{ $error }}</li>
+        @endforeach
+      </ul>
+    </div>
   @endif
 @endif
 <!-- ./wrapper -->

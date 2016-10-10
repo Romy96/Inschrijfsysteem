@@ -1,6 +1,6 @@
-@extends('menu')
+@extends('backend/menu')
 
-@section('content')
+@section('content_backend')
 
 <h1>Login</h1>
 

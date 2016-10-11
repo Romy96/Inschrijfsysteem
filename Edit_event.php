@@ -1,6 +1,7 @@
 <?php 
 
  require_once 'inc/session.php';
+ require_once 'inc/errors.php';
  require_once 'inc/blade.php';
  require_once 'inc/user_helpers.php';
 
@@ -32,9 +33,6 @@ else
 
 
 	// tell blade to create HTML from the template "login.blade.php"
-	 require_once 'inc/errors.php';
-	echo $blade->view()->make('Backend/Events/Edit_event')
-	->with('event', $event)
-	->withErrors($errors)->render();
+	echo $blade->view()->make('Backend/Events/Edit_event')->with('event', $event)->withErrors($errors)->render();
 
 }

@@ -4,4 +4,5 @@
  require_once 'inc/blade.php';
  require_once 'inc/user_helpers.php';
 
- echo $blade->view()->make('forgetpass')->withErrors($errors)->render();
+// output everything
+echo $blade->view()->make('layout')->withErrors($errors)->render();

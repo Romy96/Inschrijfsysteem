@@ -2,7 +2,6 @@
 
 require_once 'inc/session.php';
 require_once 'inc/user_helpers.php';
-require_once 'inc/errors.php';
 require 'vendor/autoload.php';
 
 use Philo\Blade\Blade;

@@ -25,6 +25,8 @@
                         <tr>
                             <th>Sorteer</th>
                             <th>Evenement</th>
+                            <th>Afbeelding achtergrond</th>
+                            <th>Banner</th>
                             <th>Startdatum</th>
                             <th>Locatie</th>
                             <th data-sortable="false">Acties</th>
@@ -44,6 +46,12 @@
                                         <a href="event_activities.php?id={{$row['events_id']}}">
                                             {{$row['name']}}
                                         </a>
+                                    </td>
+                                    <td>
+                                    	<img class="img-thumbnail" src="{{$row['background_img']}}">
+                                    </td>
+                                    <td>
+                                    	<img class="img-thumbnail" src="{{$row['banner']}}">
                                     </td>
                                     <td>
                                         <a href="event_activities.php?id={{$row['events_id']}}">

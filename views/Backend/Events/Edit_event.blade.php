@@ -12,10 +12,23 @@
                     <div class="box-body">      <!-- some whitespace -->
                         <div class="box-body">      <!-- some more whitespace -->
                                 <div class='form-group'>
-                                    <input type="hidden" name="ID" value="{{$event['id']}}">
-                                    <label for="title">Evenement:</label>
-                                    <input class="form-control" data-slug="source" placeholder="Naam" name="naam" type="text" id="naam" value="{{$event['name']}}">
+                                    <input type="hidden" name="id" value="{{$event['events_id']}}">
+                                    <label for="naam">Evenement:</label>
+                                    <input class="form-control" data-slug="source" placeholder="naam" name="naam" type="text" id="naam" value="{{$event['name']}}">
                                 </div>
+
+                                <div class="form-group">
+                                    <label for="afbeelding">Afbeelding achtergrond:</label>
+                                    <input type="text" class="form-control" data-slug="source" id="afbeelding" name="afbeelding" value="{{$event['background_img']}}">
+                                    <span class="custom-file-control"></span>
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="banner">Afbeelding achtergrond:</label>
+                                    <input type="text" class="form-control" data-slug="source" id="banner" name="banner" value="{{$event['banner']}}">
+                                    <span class="custom-file-control"></span>
+                                </div>
+ 
 
                                 <div class='form-group'>
                                     <label for="startdatum">Startdatum:</label>

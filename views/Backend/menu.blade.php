@@ -83,20 +83,33 @@
   @yield('content_backend')
   </div>
 
-  <!-- /.control-sidebar -->
-  <!-- Add the sidebar's background. This div must be placed
-       immediately after the control sidebar -->
+<?php
+   if ( isset($_SESSION['errors'])) {
+      $errors = $_SESSION['errors'];
+      $_SESSION['errors'] = array();  // remove all errors
+   } 
+   else
+   {
+      $_SESSION['errors'] = array();
+   }
+ ?>
+ 
+
 @if(isset($errors))       {{-- does $errors exist? --}}
-  @if($errors->any())     {{-- does $errors have any errors? --}}
+  @if(count($errors)>0)     {{-- does $errors have any errors? --}}
     <div class="control-sidebar-bg"></div>
       <ul>
-        @foreach ($errors->all() as $error)   
+        @foreach ($errors as $error)   
           <li>{{ $error }}</li>
         @endforeach
       </ul>
     </div>
   @endif
 @endif
+
+  <!-- /.control-sidebar -->
+  <!-- Add the sidebar's background. This div must be placed
+       immediately after the control sidebar -->
 <!-- ./wrapper -->
 <div class="debugbar">
     <div class="debugbar-inner">

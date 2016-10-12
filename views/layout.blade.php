@@ -19,17 +19,29 @@
 <span style="float:left;"></span>
 </div>
 
-<!-- show errors, if present -->
-@if(isset($errors))				{{-- does $errors exist? --}}
-	@if($errors->any())			{{-- does $errors have any errors? --}}
-	<div class="errors" >
-	<ul>
-		@foreach ($errors->all() as $error)		
-			<li>{!! $error !!}</li>
-		@endforeach
-	</ul>
-	</div>
-	@endif
+
+<?php
+   if ( isset($_SESSION['errors'])) {
+      $errors = $_SESSION['errors'];
+      $_SESSION['errors'] = array();  // remove all errors
+   } 
+   else
+   {
+      $_SESSION['errors'] = array();
+   }
+ ?>
+ 
+
+@if(isset($errors))       {{-- does $errors exist? --}}
+  @if(count($errors)>0)     {{-- does $errors have any errors? --}}
+    <div class="control-sidebar-bg"></div>
+      <ul>
+        @foreach ($errors as $error)   
+          <li>{{ $error }}</li>
+        @endforeach
+      </ul>
+    </div>
+  @endif
 @endif
 
 <!-- content goes here -->

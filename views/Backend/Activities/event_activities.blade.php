@@ -4,18 +4,19 @@
 
 @foreach ( $event as $row )  
         <h1>{{$row['name']}}</h1>
-@endforeach
+
 
 
     <div class="row">
         <div class="col-xs-12">
             <div class="row">
                 <div class="btn-group pull-right" style="margin: 0 15px 15px 0;">
-                    <a href="create_activity.php" class="btn btn-primary btn-flat" style="padding: 4px 10px;">
+                    <a href="create_activity.php?id={{$row['events_id']}}" class="btn btn-primary btn-flat" style="padding: 4px 10px;">
                         <i class="fa fa-pencil"></i> Nieuwe activiteit
                     </a>
                 </div>
             </div>
+@endforeach
 
             <div class="box box-primary">
                 <div class="box-header">
@@ -27,6 +28,7 @@
                         <tr>
                             <th>Sorteer</th>
                             <th>Activiteit</th>
+                            <th>Afbeelding</th>
                             <th>Beschrijving</th>
                             <th data-sortable="false">Acties</th>
                         </tr>
@@ -41,6 +43,9 @@
                                     </td>
                                     <td>
                                         {{$rows['name']}}
+                                    </td>
+                                    <td>
+                                        <img class="img-thumbnail" src="{{$rows['image']}}">
                                     </td>
                                     <td>
                                         {{$rows['description']}}

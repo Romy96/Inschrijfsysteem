@@ -11,7 +11,7 @@ $blade = new Blade($views, $cache);
 
 if ( IsLoggedInSession()==true ) {
 	// stuur direct door naar main pagina
-	header('location: events.php');
+	header('location: events_list.php');
 	exit;
 }
 else

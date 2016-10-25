@@ -48,10 +48,10 @@
                                         </a>
                                     </td>
                                     <td>
-                                    	<img class="img-thumbnail" src="{{$row['background_img']}}">
+                                    	<img class="img-thumbnail background-img" src="{{$row['background_img']}}">
                                     </td>
                                     <td>
-                                    	<img class="img-thumbnail" src="{{$row['banner']}}">
+                                    	<img class="img-thumbnail banner-img" src="{{$row['banner']}}">
                                     </td>
                                     <td>
                                         <a href="event_activities.php?id={{$row['events_id']}}">

@@ -30,16 +30,22 @@ else
 	}
 
 
-	$sth = $db->prepare("SELECT * FROM activities where events_id = ?");
-	$sth->execute(array($id));
-	/* Fetch all of the remaining rows in the result set */
-	$activities = $sth->fetchAll(PDO::FETCH_ASSOC);
+	$sql = $db->prepare("SELECT * FROM activities where activity_id = ?");
+	if ($sql->execute(array($id)))
+	{
+  		$activity = $sql->fetchAll(PDO::FETCH_ASSOC);	
+  		if ( $sql->rowCount() == 0 ) $_SESSION['errors'][] = 'Kan activiteit met id '. $id .' niet vinden';
+		if ( $sql->rowCount() > 1 ) $_SESSION['errors'][] = 'Je haalt teveel rijen op';
+	}
+	else
+	{
+		$_SESSION['errors'][] = 'Het is niet gelukt om de gegevens op te halen.';
+	}
 
 	// tell blade to create HTML from the template "login.blade.php"
-	echo $blade->view()->make('Backend/Activities/create_activity')
+	echo $blade->view()->make('Backend/Activities/Edit_activity')
 	->with('event', $event)
-	->with('activities', $activities)->withErrors($errors)->render();
+	->with('activity', $activity)->withErrors($errors)->render();
 
 }
 
-?>

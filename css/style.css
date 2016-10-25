@@ -100,3 +100,13 @@ div.debugbar .col p {
 	color: rgb(255, 196, 112);
 	font-size: 54px;
 }
+
+.background-img {
+	width: 150px;
+	height: 100px;
+}
+
+.banner-img {
+	width: 400px;
+	height: 100px;
+}

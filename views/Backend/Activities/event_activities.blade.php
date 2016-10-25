@@ -45,7 +45,7 @@
                                         {{$rows['name']}}
                                     </td>
                                     <td>
-                                        <img class="img-thumbnail" src="{{$rows['image']}}">
+                                        <img class="img-thumbnail background-img"  src="{{$rows['image']}}">
                                     </td>
                                     <td>
                                         {{$rows['description']}}

@@ -20,12 +20,14 @@ if (empty($naam) || empty($afbeelding) || empty($banner) || empty($startdatum) |
 	$_SESSION['errors'][] = 'Er zijn sommige velden die nog niet ingevuld zijn';
 	header('Location: create_event.php');
 }
-else {
-	$sql = $db->prepare("SELECT * FROM events WHERE name=? AND background_img=? AND banner=?");
-	if ($sql->execute(array($naam, $afbeelding, $banner))) {
-		if ( $sql->rowCount() > 0 ) $_SESSION['errors'][] = 'Sorry. De gegevens die je ingevuld hebt bestaan al.';
+
+
+$sql = $db->prepare("SELECT * FROM events WHERE name=? AND background_img=? AND banner=?");
+if ($sql->execute(array($naam, $afbeelding, $banner))) {
+	if ( $sql->rowCount() > 0 ) {
+		$_SESSION['errors'][] = 'Sorry. De gegevens die je ingevuld hebt bestaan al.';
 		header('Location: create_event.php');
-	}
+	} 
 }
 
 $sth = $db->prepare("INSERT INTO events (name, background_img, banner, start_date, location) VALUES (?, ?, ?, ?, ?)");

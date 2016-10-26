@@ -12,7 +12,7 @@ if ($sth->execute(array($id)))
 {
   	if ( $sth->rowCount() == 0 ) $_SESSION['errors'][] = 'Kan activiteit met id '. $id .' niet vinden';
 	if ( $sth->rowCount() > 1 ) $_SESSION['errors'][] = 'Je verwijderd teveel rijen';
-	header("location: event_activities.php");
+	header('location: event_activities.php?id=' . $events_id);
 }
 else
 {

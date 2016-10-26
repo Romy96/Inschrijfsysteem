@@ -2,19 +2,10 @@
 
 @section('content_backend')
 
-<h1>Gebruikers</h1>
+<h1>Accounts</h1>
 
 
     <div class="row">
-    	<div class="col-xs-12">
-            <div class="row">
-                <div class="btn-group pull-right" style="margin: 0 15px 15px 0;">
-                    <a href="register.php" class="btn btn-primary btn-flat" style="padding: 4px 10px;">
-                        <i class="fa fa-pencil"></i> Nieuwe account
-                    </a>
-                </div>
-            </div>
-
             <div class="box box-primary">
                 <div class="box-header">
                 </div>
@@ -24,23 +15,33 @@
                         <thead>
                         <tr>
                             <th>Sorteer</th>
+                            <th>Naam</th>
                             <th>Email</th>
                             <th>Wachtwoord</th>
+                            <th data-sortable="false">Acties</th>
                         </tr>
                         </thead>
                         <tbody>
 
                         @if(isset($users))
-                            @foreach ( $users as $rows ) 
+                            @foreach($users as $row)
                                 <tr>
                                     <td>
-                                        {{$rows['account_id']}}
+                                        {{$row['account_id']}}
                                     </td>
                                     <td>
-                                        {{$rows['Email']}}
+                                        {{$row['displayname']}}
                                     </td>
                                     <td>
-                                        {{$rows['Password']}}
+                                    	{{$row['Email']}}
+                                    </td>
+                                    <td>
+                                    	{{$row['Password']}}
+                                    </td>
+                                    <td>
+                                        <div class="btn-group">
+                                            <a href="Delete_user_action.php?id={{$row['account_id']}}" class="btn btn-danger btn-flat"><i class="fa fa-trash"></i></a>
+                                        </div>
                                     </td>
                                 </tr>
                             @endforeach
@@ -54,7 +55,7 @@
             </div>
 
 
-        </div>
     </div>
+
 
 @endsection

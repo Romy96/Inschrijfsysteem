@@ -14,7 +14,6 @@ if ($sql->execute(array($naam, $afbeelding, $beschrijving, $activity_id, $events
 	{
   		if ( $sql->rowCount() == 0 ) $_SESSION['errors'][] = 'Kan activiteit met id '. $activity_id .' niet vinden';
 		if ( $sql->rowCount() > 1 ) $_SESSION['errors'][] = 'Je wijzigt teveel rijen';
-		header('location: Edit_activity.php?id=' . $activity_id);
 	}
 	else
 	{
@@ -23,4 +22,5 @@ if ($sql->execute(array($naam, $afbeelding, $beschrijving, $activity_id, $events
 
 	if ( $sql->rowCount() == 1 ) $_SESSION['errors'][] = 'De aangepaste gegevens zijn opgeslagen in de database';
 	header('location: event_activities.php?id=' . $events_id);
+	exit();
 ?>

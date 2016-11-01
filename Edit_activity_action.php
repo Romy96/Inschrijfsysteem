@@ -14,13 +14,14 @@ if ($sql->execute(array($naam, $afbeelding, $beschrijving, $activity_id, $events
 	{
   		if ( $sql->rowCount() == 0 ) $_SESSION['errors'][] = 'Kan activiteit met id '. $activity_id .' niet vinden';
 		if ( $sql->rowCount() > 1 ) $_SESSION['errors'][] = 'Je wijzigt teveel rijen';
+		if ( $sql->rowCount() == 1 ) $_SESSION['errors'][] = 'De aangepaste gegevens zijn opgeslagen in de database';
 	}
 	else
 	{
 		$_SESSION['errors'][] = 'Het is niet gelukt om de gegevens op te slaan.';
 	}
 
-	if ( $sql->rowCount() == 1 ) $_SESSION['errors'][] = 'De aangepaste gegevens zijn opgeslagen in de database';
+	
 	header('location: event_activities.php?id=' . $events_id);
 	exit();
 ?>

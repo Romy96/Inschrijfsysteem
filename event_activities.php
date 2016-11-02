@@ -16,10 +16,15 @@ else
 
 	$id = $_GET['id'];
 
+	$sth = $db->prepare("SELECT * FROM activities where events_id = ?");
+	$sth->execute(array($id));
+	/* Fetch all of the remaining rows in the result set */
+	$activities = $sth->fetchAll(PDO::FETCH_ASSOC);
+
 	$sth = $db->prepare("SELECT * FROM events WHERE events_id=? ORDER BY events_id ASC");
 	// controleer of er een foutmelding is ontstaan en zo ja, plaats die dan in $_SESSION['errors'][] = $msg
 
-	if ($sth->execute(array($id)))
+	if ($sth->execute(array($activity['events_id'])))
 	{
   		$event = $sth->fetchAll(PDO::FETCH_ASSOC);	
   		if ( $sth->rowCount() == 0 ) $_SESSION['errors'][] = 'Kan event met id '. $id .' niet vinden';
@@ -31,10 +36,7 @@ else
 	}
 
 
-	$sth = $db->prepare("SELECT * FROM activities where events_id = ?");
-	$sth->execute(array($id));
-	/* Fetch all of the remaining rows in the result set */
-	$activities = $sth->fetchAll(PDO::FETCH_ASSOC);
+	var_export($id);
 
 	// tell blade to create HTML from the template "login.blade.php"
 	 require_once 'inc/errors.php';

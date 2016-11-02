@@ -30,8 +30,9 @@ if ($sth->execute(array($id)))
 else
 {
 	$_SESSION['errors'][] = 'Het is niet gelukt om de gegevens op te halen.';
+	header("location: Events_list.php");
 }
 
-header("location: Events_list.php");
+
 
 ?>

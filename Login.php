@@ -3,6 +3,7 @@
 require_once 'inc/session.php';
 require_once 'inc/user_helpers.php';
 require 'vendor/autoload.php';
+$errors = [];
 
 use Philo\Blade\Blade;
 $views = __DIR__ . '/views';

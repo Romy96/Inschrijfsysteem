@@ -3,6 +3,7 @@
  require_once 'inc/session.php';
  require_once 'inc/blade.php';
  require_once 'inc/user_helpers.php';
+ $errors = [];
 
  if ( IsLoggedInSession()==false ) {
 	// stuur direct door naar main pagina
